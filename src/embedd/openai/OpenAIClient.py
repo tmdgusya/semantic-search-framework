@@ -65,6 +65,8 @@ class OpenAIClient(EmbeddingInterface):
         
         return embedded
     
+    def get_vector_size(self) -> int:
+        return 1536
 
 if __name__ == "__main__":
     client = OpenAIClient()

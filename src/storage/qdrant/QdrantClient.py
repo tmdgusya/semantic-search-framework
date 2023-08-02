@@ -21,7 +21,7 @@ class QdrantClientStorage(StorageInterface):
         
         self.qdrant_client.recreate_collection(
             collection_name=self.collection_name,
-            vectors_config=models.VectorParams(size=1536, distance=models.Distance.COSINE),
+            vectors_config=models.VectorParams(size=embedding_client.get_vector_size(), distance=models.Distance.COSINE),
         )
         self.model = embedding_client
     

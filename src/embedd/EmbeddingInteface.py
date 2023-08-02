@@ -27,3 +27,12 @@ class EmbeddingInterface:
             text_data (SourceData): SourceData to be embedded
         """
         pass
+    
+    def get_vector_size(self) -> int:
+        """
+        Get the vector size of the embedding model
+
+        Returns:
+            int: vector size
+        """
+        pass
