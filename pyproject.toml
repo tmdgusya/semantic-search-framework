@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "semantic-search-using-qdrant"
+version = "0.1.0"
+description = "This repository is demo that explain how to implement semantic search using Chat-GPT and Qdrant"
+authors = ["정승현 <tmdgusya@naver.com>"]
+license = "MIT License"
+readme = "README.md"
+packages = [{include = "semantic_search_using_qdrant"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
