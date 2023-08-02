@@ -11,6 +11,8 @@ poetry install
 ```bash
 set -a
 source .env
+
+docker-compose -f docker-compose-local.yaml up # It is optional. If you want to run Qdrant locally then run this command
 ```
 
 3. Add you openAI key to .env
