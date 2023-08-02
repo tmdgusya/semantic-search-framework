@@ -1,4 +1,4 @@
-
+from src.embedd.EmbeddedModel import EmbeddedModel
 
 class EmbeddingInterface:
     """
@@ -6,7 +6,7 @@ class EmbeddingInterface:
     You have to implement this method when you make a new embedding class.
     """
     
-    def embed(self, text_data):
+    def embed(self, text_data) -> EmbeddedModel:
         """
         Embedding text data into vector
 
