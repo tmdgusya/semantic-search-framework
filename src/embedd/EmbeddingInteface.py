@@ -1,4 +1,5 @@
 from src.embedd.EmbeddedModel import EmbeddedModel
+from src.crawler.SourceData import SourceData
 
 class EmbeddingInterface:
     """
@@ -6,12 +7,12 @@ class EmbeddingInterface:
     You have to implement this method when you make a new embedding class.
     """
     
-    def embed(self, text_data) -> EmbeddedModel:
+    def embed(self, data: SourceData) -> EmbeddedModel:
         """
         Embedding text data into vector
 
         Args:
-            text_data (_type_): Text data to be embedded
+            text_data (SourceData): SourceData to be embedded
         """
         pass
     
