@@ -8,8 +8,9 @@ readme = "README.md"
 packages = [{include = "semantic_search_using_qdrant"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.12"
 openai = "^0.27.8"
+qdrant-client = "^1.3.2"
 
 
 [build-system]
