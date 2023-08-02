@@ -1,3 +1,20 @@
+## Prequsites
+
+1. Install dependencies using poetry
+
+```bash
+poetry install
+```
+
+2. Set environment variables
+
+```bash
+set -a
+source .env
+```
+
+3. Add you openAI key to .env
+
 ## Introduction
 
 This repository is a demo project for implementing a semantic search product.

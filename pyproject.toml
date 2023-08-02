@@ -9,6 +9,7 @@ packages = [{include = "semantic_search_using_qdrant"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+openai = "^0.27.8"
 
 
 [build-system]
