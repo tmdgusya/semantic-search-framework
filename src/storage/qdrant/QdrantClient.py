@@ -1,5 +1,6 @@
 import os
 import uuid
+from typing import List
 from src.embedd.EmbeddedModel import EmbeddedModel
 from src.storage.QueryResultModel import QueryResultModel
 from src.storage.StorageInterface import StorageInterface
@@ -25,17 +26,21 @@ class QdrantClientStorage(StorageInterface):
         self.model = embedding_client
         pass
     
+    def convert_single_data_to_point_struct(self, data: EmbeddedModel) -> models.PointStruct:
+        return models.PointStruct(
+            id=uuid.uuid4().hex,
+            payload={
+                "original_text": data.original_text,
+                "ref": data.ref,
+            },
+            vector=data.embedded_text
+        )
+        
+    def convert_data_to_point_structs(self, datas: List[EmbeddedModel]) -> List[models.PointStruct]:
+        return [self.convert_single_data_to_point_struct(data) for data in datas]
+    
     def save(self, data: EmbeddedModel) -> bool:
-        datas = [
-            models.PointStruct(
-                id=uuid.uuid4().hex,
-                payload={
-                    "original_text": data.original_text,
-                    "ref": data.ref,
-                },
-                vector=data.embedded_text
-            )
-        ]
+        datas = self.convert_data_to_point_structs([data])
         
         result = self.qdrant_client.upsert(
             collection_name=self.collection_name, points=datas
