@@ -24,7 +24,6 @@ class QdrantClientStorage(StorageInterface):
             vectors_config=models.VectorParams(size=1536, distance=models.Distance.COSINE),
         )
         self.model = embedding_client
-        pass
     
     def convert_single_data_to_point_struct(self, data: EmbeddedModel) -> models.PointStruct:
         return models.PointStruct(
