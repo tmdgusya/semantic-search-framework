@@ -1,3 +1,4 @@
+from typing import List
 
 
 class EmbeddedModel:
@@ -5,7 +6,7 @@ class EmbeddedModel:
     EmbeddedModel is a class that represents the embedded text, original text and the reference of the text.
     """
     
-    def __init__(self, embedded_text, original_text, ref) -> None:
+    def __init__(self, embedded_text: List[float], original_text: str, ref: str) -> None:
         self.embedded_text = embedded_text
         self.original_text = original_text
         self.ref = ref
