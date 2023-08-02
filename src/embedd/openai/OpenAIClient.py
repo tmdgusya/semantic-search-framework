@@ -1,4 +1,5 @@
 import os
+from typing import List
 import openai
 
 from src.embedd.EmbeddedModel import EmbeddedModel
@@ -31,10 +32,7 @@ class OpenAIClient(EmbeddingInterface):
         text_data = data.text
         data_ref = data.ref
         
-        embedded = openai.Embedding.create(
-            input=text_data,
-            model=self.model,
-        )['data'][0]['embedding']
+        embedded = self.embed_simple_text(text_data)
         
         print(f"Embedded by OpenAI: {embedded}")
         
@@ -43,6 +41,29 @@ class OpenAIClient(EmbeddingInterface):
             original_text=text_data,
             ref=data_ref,
         )
+    
+    
+    def embed_simple_text(self, text: str) -> List[float]:
+        """
+        Embedding text data into vector using OpenAI Embedding API
+
+        Args:
+            text (str): Text to be embedded
+
+        Returns:
+            List[float]: Embedded vector
+        """
+        
+        print(f"Will be embedded: {text}")
+        
+        embedded = openai.Embedding.create(
+            input=text,
+            model=self.model,
+        )['data'][0]['embedding']
+        
+        print(f"Embedded by OpenAI: {embedded}")
+        
+        return embedded
     
 
 if __name__ == "__main__":

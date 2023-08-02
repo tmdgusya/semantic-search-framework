@@ -1,3 +1,5 @@
+from typing import List
+
 from src.embedd.EmbeddedModel import EmbeddedModel
 from src.crawler.SourceData import SourceData
 
@@ -16,3 +18,12 @@ class EmbeddingInterface:
         """
         pass
     
+    
+    def embed_simple_text(self, text: str) -> List[float]:
+        """
+        Embedding text data into vector
+
+        Args:
+            text_data (SourceData): SourceData to be embedded
+        """
+        pass
