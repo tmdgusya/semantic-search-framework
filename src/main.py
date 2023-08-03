@@ -19,7 +19,7 @@ def main():
         storageClient.save(data=embedded)
     
     result = storageClient.query(
-        "모바일 페메 연동관련글 가져와줘"
+        "메이플 스토리 제이슨이 뭐야"
     )
     
     print(result)

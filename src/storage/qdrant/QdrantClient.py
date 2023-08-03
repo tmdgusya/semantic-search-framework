@@ -19,11 +19,11 @@ class QdrantClientStorage(StorageInterface):
             port=os.getenv("QDRANT_PORT"),
         )
         
-        if (os.getenv("QDRANT_COLLECTION_ALWAYS_REFRES")):
+        if (os.getenv("QDRANT_COLLECTION_ALWAYS_REFRES") == True):
             print("QDRANT_COLLECTION_ALWAYS_REFRES is set. So, collection will be refreshed.")
             self.qdrant_client.recreate_collection(
                 collection_name=self.collection_name,
-                vectors_config=models.VectorParams(size=embedding_client.get_vector_size(), distance=models.Distance.COSINE),
+                vectors_config=models.VectorParams(size=embedding_client.get_vector_size(), distance=models.Distanc.COSINE),
             )
         else:
             print("QDRANT_COLLECTION_ALWAYS_REFRES is not set. So, collection will not be refreshed.")

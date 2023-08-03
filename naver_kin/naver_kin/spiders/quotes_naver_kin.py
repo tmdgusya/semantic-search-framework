@@ -2,7 +2,7 @@ import scrapy
 
 class exampleSpider(scrapy.Spider):
     name = 'kinspider'
-    category = '2'
+    category = '4'
     kin_urls = 'http://kin.naver.com/qna/list.nhn?dirId=' + category
     start_urls = [kin_urls]
     
