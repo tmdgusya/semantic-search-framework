@@ -56,9 +56,6 @@ class QdrantClientStorage(StorageInterface):
             collection_name=self.collection_name, points=datas
         )
         
-        print(result)
-        
-
         return result
     
     def query(self, query: str) -> QueryResultModel:
@@ -72,12 +69,10 @@ class QdrantClientStorage(StorageInterface):
             query_filter=None,  # If you don't want any filters for now
         )
         
-        print("Search result: ", search_result)
         # `search_result` contains found vector ids with similarity scores along with the stored payload
         # In this function you are interested in payload only
         payloads = [hit.payload for hit in search_result]
         
-        print(f"Payloads: {payloads}")
         return payloads
     
 

@@ -14,9 +14,9 @@ def main():
     result_datas = crawl.crawl()
     
     # already studied data
-    # for data in result_datas:
-    #     embedded = embedClient.embed(data)
-    #     storageClient.save(data=embedded)
+    for data in result_datas:
+        embedded = embedClient.embed(data)
+        storageClient.save(data=embedded)
     
     result = storageClient.query(
         "모바일 페메 연동관련글 가져와줘"

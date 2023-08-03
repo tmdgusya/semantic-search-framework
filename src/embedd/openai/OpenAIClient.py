@@ -11,8 +11,6 @@ class OpenAIClient(EmbeddingInterface):
     def __init__(self) -> None:
         openai.api_key = os.getenv("OPENAI_API_KEY")
         self.model = os.getenv("OPENAI_EMBEDDING_MODEL")
-        print(openai.api_key)
-        print(self.model)
         pass
     
     
@@ -27,14 +25,10 @@ class OpenAIClient(EmbeddingInterface):
             EmbeddedModel: EmbeddedModel
         """
         
-        print(f"Will be embedded: {data}")
-        
         text_data = data.text
         data_ref = data.ref
         
         embedded = self.embed_simple_text(text_data)
-        
-        print(f"Embedded by OpenAI: {embedded}")
         
         return EmbeddedModel(
             embedded_text = embedded,
@@ -54,14 +48,10 @@ class OpenAIClient(EmbeddingInterface):
             List[float]: Embedded vector
         """
         
-        print(f"Will be embedded: {text}")
-        
         embedded = openai.Embedding.create(
             input=text,
             model=self.model,
         )['data'][0]['embedding']
-        
-        print(f"Embedded by OpenAI: {embedded}")
         
         return embedded
     
