@@ -1,11 +1,11 @@
 import json
 
 from typing import List
-from src.crawler.CrawlerInterface import CralwerInterface
+from src.crawler.CrawlerInterface import CrawlerInterface
 from src.crawler.SourceData import SourceData
 
 
-class LocalNaverJsonParser(CralwerInterface):
+class LocalNaverJsonParser(CrawlerInterface):
     
     def __init__(self):
         pass

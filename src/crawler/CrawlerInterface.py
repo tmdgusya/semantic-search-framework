@@ -1,7 +1,7 @@
 from .SourceData import SourceData
 from typing import List
 
-class CralwerInterface:
+class CrawlerInterface:
     """
     This is an interface class for crawler.
     You have to implement this method when you make a new crawler class.

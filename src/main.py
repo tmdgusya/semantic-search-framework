@@ -1,4 +1,4 @@
-from src.crawler.CrawlerInterface import CralwerInterface
+from src.crawler.CrawlerInterface import CrawlerInterface
 from src.crawler.naver.LocalNaverJsonParser import LocalNaverJsonParser
 from src.embedd.EmbeddingInteface import EmbeddingInterface
 from src.embedd.openai.OpenAIClient import OpenAIClient
@@ -7,7 +7,7 @@ from src.storage.qdrant.QdrantClient import QdrantClientStorage
 
 
 def main():
-    crawl: CralwerInterface = LocalNaverJsonParser()
+    crawl: CrawlerInterface = LocalNaverJsonParser()
     embedClient: EmbeddingInterface = OpenAIClient()
     storageClient: StorageInterface = QdrantClientStorage(embedding_client=embedClient)
     
