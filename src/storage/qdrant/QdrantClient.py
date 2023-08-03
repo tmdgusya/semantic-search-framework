@@ -19,10 +19,21 @@ class QdrantClientStorage(StorageInterface):
             port=os.getenv("QDRANT_PORT"),
         )
         
-        self.qdrant_client.recreate_collection(
-            collection_name=self.collection_name,
-            vectors_config=models.VectorParams(size=embedding_client.get_vector_size(), distance=models.Distance.COSINE),
-        )
+        if (os.getenv("QDRANT_COLLECTION_ALWAYS_REFRES")):
+            print("QDRANT_COLLECTION_ALWAYS_REFRES is set. So, collection will be refreshed.")
+            self.qdrant_client.recreate_collection(
+                collection_name=self.collection_name,
+                vectors_config=models.VectorParams(size=embedding_client.get_vector_size(), distance=models.Distance.COSINE),
+            )
+        else:
+            print("QDRANT_COLLECTION_ALWAYS_REFRES is not set. So, collection will not be refreshed.")
+            if (self.qdrant_client.get_collection(collection_name=self.collection_name) == None):
+                print("Collection does not exist. So, collection will be created.")
+                self.qdrant_client.create_collection(
+                    collection_name=self.collection_name,
+                    vectors_config=models.VectorParams(size=embedding_client.get_vector_size(), distance=models.Distance.COSINE),
+                )
+        
         self.model = embedding_client
     
     def convert_single_data_to_point_struct(self, data: EmbeddedModel) -> models.PointStruct:
