@@ -1,4 +1,5 @@
 from .SourceData import SourceData
+from typing import List
 
 class CralwerInterface:
     """
@@ -6,7 +7,7 @@ class CralwerInterface:
     You have to implement this method when you make a new crawler class.
     """
     
-    def crawl(self) -> SourceData:
+    def crawl(self) -> List[SourceData]:
         """
         Load data from external source (e.g. web page, wiki pagem, etc.)
 
