@@ -14,12 +14,12 @@ def main():
     result_datas = crawl.crawl()
     
     # already studied data
-    for data in result_datas:
-        embedded = embedClient.embed(data)
-        storageClient.save(data=embedded)
+    # for data in result_datas:
+    #     embedded = embedClient.embed(data)
+    #     storageClient.save(data=embedded)
     
     result = storageClient.query(
-        "메이플 스토리 제이슨이 뭐야"
+        "창업 정보"
     )
     
     print(result)

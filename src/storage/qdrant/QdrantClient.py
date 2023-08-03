@@ -66,6 +66,7 @@ class QdrantClientStorage(StorageInterface):
         search_result = self.qdrant_client.search(
             collection_name=self.collection_name,
             query_vector=vector,
+            score_threshold=0.8,
             query_filter=None,  # If you don't want any filters for now
         )
         
